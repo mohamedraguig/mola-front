@@ -3,13 +3,14 @@ import { Injectable, Service } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CarrouselItem } from '../models/carrousel.model';
 import { StrapiCollectionResponse, StrapiImage } from '../models/strapi-response.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CarrouselService {
 
-    private readonly apiUrl = 'http://localhost:1337';
+    private readonly apiUrl = environment.apiUrl;
 
     constructor(private http: HttpClient) {}
 

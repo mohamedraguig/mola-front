@@ -3,13 +3,14 @@ import { Injectable, Service } from '@angular/core';
 import { StrapiImage, StrapiResponse } from '../models/strapi-response.model';
 import { AboutSection } from '../models/about.model';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment.production';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AboutService {
 
-    private readonly apiUrl = 'http://localhost:1337';
+    private readonly apiUrl = environment.apiUrl;
 
     constructor(private http: HttpClient) { }
 

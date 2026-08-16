@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StrapiCollectionResponse } from '../models/strapi-response.model';
 import { GalleryImage } from '../models/menu-item.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GalleryImageService {
     
-    private readonly apiUrl = 'http://localhost:1337';
+    private readonly apiUrl = environment.apiUrl;
 
     constructor(private http: HttpClient) {}
 

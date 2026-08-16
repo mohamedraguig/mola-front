@@ -3,12 +3,13 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { StrapiCollectionResponse } from '../models/strapi-response.model';
 import { Category, MenuItem } from '../models/menu-item.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
-  private readonly apiUrl = 'http://localhost:1337';
+  private readonly apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
