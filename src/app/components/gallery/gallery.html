@@ -1,0 +1,39 @@
+<section id="gallery" class="sec-pad">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="text-center mb-5 head1">
+          <h2 class="font-heading">
+            Galerie
+          </h2>
+
+          <p>
+            Découvrez l'ambiance de Mola et quelques-unes de nos spécialités.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 gallery-grid">
+
+      @for (image of images; track image.id) {
+
+        <div class="col-6 col-md-4">
+          <div class="gallery-item">
+            <img
+              [src]="getImageUrl(image)"
+              [alt]="image.image?.alternativeText || image.title"
+              loading="lazy"
+              decoding="async"
+              class="img-fluid w-100"
+            >
+          </div>
+        </div>
+
+      }
+
+    </div>
+
+  </div>
+</section>

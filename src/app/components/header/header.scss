@@ -1,0 +1,93 @@
+@use '../../../styles/variables' as v;
+
+.custom-navbar {
+  background-color: v.$background;
+  padding: 8px 24px;
+
+  .navbar-brand {
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-logo {
+    width: auto;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .nav-link {
+    color: v.$text;
+    position: relative;
+    transition: color 0.25s ease;
+
+    &:hover {
+      color: v.$primary;
+    }
+
+    &.active {
+      color: v.$primary;
+    }
+
+    &.active::after {
+      content: '';
+      position: absolute;
+
+      left: 50%;
+      bottom: 0;
+
+      width: 22px;
+      height: 2px;
+
+      background: v.$primary;
+
+      transform: translateX(-50%);
+    }
+  }
+
+  .custom-toggler {
+    border: 0;
+    padding: 8px;
+
+    span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      margin: 5px 0;
+      background: v.$primary;
+      transition: 0.3s ease;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      background: v.$surface;
+      width: 100%;
+      margin-top: 12px;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(182, 163, 107, 0.15);
+    }
+
+    .navbar-nav {
+      gap: 6px;
+    }
+
+    .nav-link {
+      color: v.$text !important;
+      padding: 12px 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: v.$primary !important;
+    }
+
+    .nav-link.active::after {
+      left: 0;
+      transform: none;
+      bottom: 4px;
+      width: 28px;
+    }
+  }
+}

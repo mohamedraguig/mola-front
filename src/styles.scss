@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import 'aos/dist/aos.css';
+@import '../public/assets/css/style.css';
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: #11110f;
+  color: #f5f1e8;
+}
+
+a {
+  color: #b6a36b;
+}
+
+a:hover {
+  color: #d0bd7c;
+}
+
+.btn-primary {
+  background-color: #b6a36b !important;
+  border-color: #b6a36b !important;
+  color: #11110f !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #c7b376 !important;
+  border-color: #c7b376 !important;
+  color: #11110f !important;
+}
+
+.btn-outline-primary {
+  border-color: #b6a36b !important;
+  color: #b6a36b !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: #b6a36b !important;
+  border-color: #b6a36b !important;
+  color: #11110f !important;
+}
+
+.text-primary {
+  color: #b6a36b !important;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  color: #b6a36b;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: none;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #b6a36b;
+}

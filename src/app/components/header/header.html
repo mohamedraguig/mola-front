@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar navbar-theme-light navbar-light">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="#">
+      <img class="nav-logo" src="/assets/images/logo_mola.png" alt="Mola Café & Restaurant" />
+    </a>
+
+    <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Afficher le menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <a class="nav-link" [class.active]="activeSection === 'home'" href="#home">
+          Accueil
+        </a>
+
+        <a class="nav-link" [class.active]="activeSection === 'about'" href="#about">
+          Le restaurant
+        </a>
+
+        <a class="nav-link" [class.active]="activeSection === 'menu'" href="#menu">
+          La carte
+        </a>
+
+        <a class="nav-link" [class.active]="activeSection === 'gallery'" href="#gallery">
+          Galerie
+        </a>
+
+        <a class="nav-link" [class.active]="activeSection === 'contact'" href="#contact">
+          Contact
+        </a>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>

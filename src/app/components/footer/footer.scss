@@ -1,0 +1,46 @@
+@use '../../../styles/variables' as v;
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+
+.footer-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  i {
+    color: v.$primary;
+    font-size: 0.9rem;
+    margin-top: 3px;
+  }
+}
+
+.footer-link {
+  color: v.$text-muted;
+  text-decoration: none;
+  font-weight: 400;
+
+  &:hover {
+    color: v.$primary;
+  }
+}
+
+@media (max-width: 575.98px) {
+  footer {
+    padding-top: 45px;
+    padding-bottom: 30px;
+  }
+}

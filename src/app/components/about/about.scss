@@ -1,0 +1,27 @@
+@use '../../../styles/variables' as v;
+
+.home-about {
+  background-color: v.$background;
+  color: v.$text;
+
+  h2 {
+    color: v.$text;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 2px;
+      background: v.$primary;
+      margin-top: 14px;
+    }
+  }
+
+  h4 {
+    color: v.$text;
+  }
+
+  p {
+    color: v.$text-muted;
+  }
+}

@@ -1,0 +1,73 @@
+<section id="menu" class="our-menu sec-pad">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="text-center mb-5 head1">
+          <h2 class="font-heading">
+            Notre carte
+          </h2>
+
+          <p>
+            Découvrez une sélection de nos plats et spécialités.
+          </p>
+
+          <div class="menu-categories">
+            @for (category of categories; track category.documentId) {
+            <button type="button" class="category-btn"
+              [class.active]="selectedCategory?.documentId === category.documentId" (click)="selectCategory(category)">
+              {{ category.name }}
+            </button>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-2 g-md-3">
+
+      @for (item of filteredMenuItems; track item.documentId) {
+
+      <div class="col-lg-6 col-12 d-flex">
+
+        <div class="menu-item-one">
+
+          <img [src]="getImageUrl(item)" [alt]="item.image?.alternativeText || item.name" loading="lazy"
+            decoding="async">
+
+          <div class="content-wrap">
+
+            <div class="title-wrap">
+              <h5>{{ item.name }}</h5>
+
+              <span class="price">
+                {{ item.price }} €
+              </span>
+            </div>
+
+            <p>
+              {{ item.description }}
+            </p>
+
+            @if (item.ingredients?.length) {
+            <div class="ingredients-list">
+              @for (ingredient of item.ingredients; track ingredient.id) {
+              <span class="ingredient-chip">
+                {{ ingredient.name }}
+              </span>
+              }
+            </div>
+            }
+
+          </div>
+
+        </div>
+
+      </div>
+
+      }
+
+    </div>
+
+  </div>
+</section>

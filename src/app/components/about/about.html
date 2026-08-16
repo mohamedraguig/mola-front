@@ -1,0 +1,38 @@
+<section id="about" class="home-about sec-pad">
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+
+      <div class="col-md-6">
+        <div class="img-collage-wrap">
+          @for (image of displayedImages; track image.id; let index = $index) {
+            <img 
+              [className]="getImageOrder(index)" 
+              [src]="getImageUrl(image)" 
+              [alt]="image.alternativeText || image.name"
+              loading="lazy"
+              decoding="async"
+            >
+          }
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        @if(aboutSection) {
+        <h2 class="mb-4 font-heading f-40">
+          {{ aboutSection.title }}
+        </h2>
+
+        <h4 class="mb-4">
+          {{ aboutSection.subTitle }}
+        </h4>
+
+        <p>
+          {{ aboutSection.description }}
+        </p>
+        }
+
+      </div>
+
+    </div>
+  </div>
+</section>

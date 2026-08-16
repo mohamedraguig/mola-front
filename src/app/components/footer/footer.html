@@ -1,0 +1,124 @@
+<footer class="footer-one">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-4 mb-4">
+
+        @if (restaurantInfo) {
+        <h5 class="footer-title">
+          {{ restaurantInfo.name }}
+        </h5>
+
+        <div class="footer-info">
+
+          <div class="footer-info-item">
+            <i class="bi bi-geo-alt"></i>
+
+            <a [href]="restaurantInfo.googleMapsUrl" target="_blank" rel="noopener noreferrer" class="footer-link">
+              @for (line of getAddressLines(); track $index) {
+              {{ line }}
+              @if (!$last) {
+              <br>
+              }
+              }
+            </a>
+          </div>
+
+          <div class="footer-info-item">
+            <i class="bi bi-telephone"></i>
+
+            <a [href]="getPhoneLink()" class="footer-link">
+              {{ restaurantInfo.phone }}
+            </a>
+          </div>
+
+        </div>
+        }
+
+      </div>
+
+      <div class="col-md-4 mb-4">
+
+        <h5 class="footer-title">
+          Navigation
+        </h5>
+
+        <ul class="footer-links">
+          <li>
+            <a href="#home" class="btn-link">
+              Accueil
+            </a>
+          </li>
+
+          <li>
+            <a href="#about" class="btn-link">
+              Le restaurant
+            </a>
+          </li>
+
+          <li>
+            <a href="#menu" class="btn-link">
+              La carte
+            </a>
+          </li>
+
+          <li>
+            <a href="#gallery" class="btn-link">
+              Galerie
+            </a>
+          </li>
+
+          <li>
+            <a href="#contact" class="btn-link">
+              Contact
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="col-md-4 mb-4">
+
+        <h5 class="footer-title">
+          Suivez-nous
+        </h5>
+
+        <div class="social-links">
+
+          <a href="https://www.instagram.com/mola.caferestaurant" class="btn btn-outline-light btn-sm me-2"
+            target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+
+          <a href="https://www.tiktok.com/@mola.restaurant38" class="btn btn-outline-light btn-sm" target="_blank"
+            rel="noopener noreferrer" aria-label="TikTok">
+            <i class="bi bi-tiktok"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <hr class="mt-4 mb-4 border-secondary">
+
+    <div class="row copyright">
+
+      <div class="col-md-6">
+        <p class="mb-0">
+          © 2026 Mola Café & Restaurant
+        </p>
+      </div>
+
+      <div class="col-md-6 text-md-end mt-2 mt-md-0">
+        <span>
+          Site réalisé pour Mola
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+</footer>

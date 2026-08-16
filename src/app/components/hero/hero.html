@@ -1,0 +1,63 @@
+<section id="home">
+  <div id="homeCarousel" class="carousel slide hero-section carousel-fade" data-bs-ride="carousel">
+
+    <div class="carousel-indicators">
+      @for (item of carrouselItems; track item.id; let first = $first; let index = $index) {
+        <button
+          type="button"
+          data-bs-target="#homeCarousel"
+          [attr.data-bs-slide-to]="index"
+          [class.active]="first"
+          [attr.aria-current]="first ? 'true' : null"
+        >
+        </button>
+      }
+    </div>
+
+    <div class="carousel-inner">
+
+      @for (item of carrouselItems; track item.id; let first = $first) {
+      <div class="carousel-item" [class.active]="first"
+        [style.background-image]="'url(' + getImageUrl(item.image) + ')'">
+
+        <div class="hero-content-area">
+          <div class="hero-caption">
+
+            <span class="hero-kicker">
+              {{ item.shortTitle }}
+            </span>
+
+            <h1 class="font-heading">
+              {{ item.title }}
+            </h1>
+
+            @if (item.description) {
+            <p>
+              {{ item.description }}
+            </p>
+            }
+
+            @if (item.buttonLabel && item.buttonLink) {
+            <a [href]="item.buttonLink" class="btn btn-primary btn-wide btn-shine">
+              {{ item.buttonLabel }}
+            </a>
+            }
+
+          </div>
+        </div>
+
+      </div>
+      }
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+</section>

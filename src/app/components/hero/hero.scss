@@ -1,0 +1,170 @@
+@use '../../../styles/variables' as v;
+
+.hero-section {
+  min-height: calc(100vh - 76px);
+}
+
+.carousel-item {
+  position: relative;
+  min-height: calc(100vh - 76px);
+  background-size: cover;
+  background-position: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.72) 0%,
+        rgba(0, 0, 0, 0.48) 45%,
+        rgba(0, 0, 0, 0.22) 100%
+      );
+    z-index: 1;
+  }
+}
+
+.hero-content-area {
+  position: relative;
+  z-index: 2;
+
+  min-height: calc(100vh - 76px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.hero-caption {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+  padding: 0 24px;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .hero-kicker {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    color: v.$primary;
+
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  h1 {
+    margin: 0 0 24px;
+
+    color: v.$text;
+
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 0.95;
+
+    text-align: center;
+  }
+
+  p {
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+
+    color: v.$text;
+
+    font-size: 1.2rem;
+
+    text-align: center;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  width: 100%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #4f4d45 !important;
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .hero-caption {
+    margin: 0;
+    padding: 0 24px;
+    text-align: center;
+
+    h1 {
+      font-size: 4rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .hero-caption {
+    max-width: 760px;
+    padding: 0 40px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-caption {
+    width: 100%;
+    padding: 0 35px;
+
+    h1 {
+      font-size: 3rem;
+      line-height: 1.05;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+
+  .hero-kicker {
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-wide {
+    min-width: 175px;
+  }
+}
