@@ -12,7 +12,7 @@ export class CarrouselService {
 
     private readonly apiUrl = environment.apiUrl;
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     loadCarrouselItems(): Observable<StrapiCollectionResponse<CarrouselItem>> {
         return this.http.get<StrapiCollectionResponse<CarrouselItem>>(
@@ -25,11 +25,17 @@ export class CarrouselService {
             return '/assets/images/banner1.webp';
         }
 
-        const imageUrl = 
+        const imageUrl =
             item.formats?.large?.url ??
             item.formats?.medium?.url ??
             item.url;
 
+        // Cloudinary / URL externe
+        if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+            return imageUrl;
+        }
+
+        // Strapi local
         return `${this.apiUrl}${imageUrl}`;
     }
 }

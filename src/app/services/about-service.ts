@@ -31,6 +31,12 @@ export class AboutService {
             image.formats?.small?.url ??
             image.url;
 
+        // Cloudinary / URL externe
+        if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+            return imageUrl;
+        }
+
+        // Strapi local
         return `${this.apiUrl}${imageUrl}`;
     }
 }

@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 export class MenuService {
   private readonly apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getMenuItems(): Observable<StrapiCollectionResponse<MenuItem>> {
     return this.http.get<StrapiCollectionResponse<MenuItem>>(
@@ -21,7 +21,7 @@ export class MenuService {
 
   getCategories(): Observable<StrapiCollectionResponse<Category>> {
     return this.http.get<StrapiCollectionResponse<Category>>(
-        `${this.apiUrl}/api/categories?sort=order:asc`
+      `${this.apiUrl}/api/categories?sort=order:asc`
     );
   }
 
@@ -31,10 +31,16 @@ export class MenuService {
     }
 
     const imageUrl =
-    item.image.formats?.thumbnail?.url ??
-    item.image.formats?.small?.url ??
-    item.image.url;
+      item.image.formats?.thumbnail?.url ??
+      item.image.formats?.small?.url ??
+      item.image.url;
 
+    // Cloudinary / URL externe
+    if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+      return imageUrl;
+    }
+
+    // Strapi local
     return `${this.apiUrl}${imageUrl}`;
   }
 }
