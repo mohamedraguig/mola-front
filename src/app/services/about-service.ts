@@ -16,10 +16,7 @@ export class AboutService {
 
     loadAboutSection(): Observable<StrapiResponse<AboutSection>> {
         return this.http.get<StrapiResponse<AboutSection>>(
-            `${this.apiUrl}/api/about?populate=*`,
-            {
-                transferCache: false
-            }
+            `${this.apiUrl}/api/about?populate=*`
         );
     }
 
