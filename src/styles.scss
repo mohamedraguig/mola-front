@@ -26,13 +26,19 @@ a:hover {
   background-color: #b6a36b !important;
   border-color: #b6a36b !important;
   color: #11110f !important;
-}
 
-.btn-primary:hover,
-.btn-primary:focus {
-  background-color: #c7b376 !important;
-  border-color: #c7b376 !important;
-  color: #11110f !important;
+  &:hover,
+  &:focus {
+    background-color: #9f8d59 !important;
+    border-color: #9f8d59 !important;
+    color: #11110f !important;
+  }
+
+  &:active {
+    background-color: #91804f !important;
+    border-color: #91804f !important;
+    color: #11110f !important;
+  }
 }
 
 .btn-outline-primary {
@@ -44,6 +50,10 @@ a:hover {
   background-color: #b6a36b !important;
   border-color: #b6a36b !important;
   color: #11110f !important;
+
+  i {
+    color: #11110f !important;
+  }
 }
 
 .text-primary {

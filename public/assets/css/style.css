@@ -349,27 +349,6 @@ a {
   font-weight: 600;
   transition: all 0.3s ease;
 }
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: #b51616 !important;
-  border-color: #b51616 !important;
-  color: #fff !important;
-  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
-}
-
-/**
- * Outline Button
- * A transparent variation with a primary-colored border.
- */
-.btn-outline-primary {
-  color: #d32f2f;
-  border-color: #d32f2f;
-  background-color: transparent;
-}
-.btn-outline-primary:hover {
-  background-color: #d32f2f;
-  border-color: #d32f2f;
-  color: #fff;
-}
 
 /**
  * Shine Hover Effect
@@ -380,11 +359,6 @@ a {
   overflow: hidden;
   transition: all 0.3s ease;
 }
-.btn-shine:hover {
-  transform: translateY(-1px);
-  background-color: #b51616 !important;
-  border-color: #b51616 !important;
-}
 .btn-shine::after {
   content: "";
   position: absolute;
@@ -392,8 +366,8 @@ a {
   left: -60%;
   width: 20%;
   height: 200%;
-  background: rgba(255, 255, 255, 0.3);
-  background: rgba(211, 47, 47, 0.5);
+  background: rgba(182, 163, 107, 0.45);
+  background: rgba(255, 255, 255, 0.35);
   transform: rotate(30deg);
   transition: all 0.5s ease;
 }
@@ -410,10 +384,6 @@ a {
   margin-bottom: 0px !important;
   text-decoration: none;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-.btn-link:hover {
-  transform: translateX(5px);
-  color: #b51616;
 }
 
 /**
