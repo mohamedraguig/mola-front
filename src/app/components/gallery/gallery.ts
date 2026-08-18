@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { GalleryImage } from '../../models/menu-item.model';
 import { GalleryImageService } from '../../services/gallery-image';
 
@@ -10,15 +10,15 @@ import { GalleryImageService } from '../../services/gallery-image';
 })
 export class Gallery implements OnInit {
   
-  images: GalleryImage[] = [];
+  images = signal<GalleryImage[]>([]);
 
   constructor(private readonly galleryImageService: GalleryImageService) {}
 
   ngOnInit(): void {
     this.galleryImageService.getGalleryImages().subscribe({
       next: response => {
-        this.images = response.data.filter(
-          item => item.active
+        this.images.set(
+          response.data.filter(item => item.active)
         );
       },
       error: error => {

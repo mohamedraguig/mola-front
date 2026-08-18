@@ -17,17 +17,17 @@
       </div>
 
       <div class="col-md-6">
-        @if(aboutSection) {
+        @if(aboutSection(); as about) {
         <h2 class="mb-4 font-heading f-40">
-          {{ aboutSection.title }}
+          {{ about.title }}
         </h2>
 
         <h4 class="mb-4">
-          {{ aboutSection.subTitle }}
+          {{ about.subTitle }}
         </h4>
 
         <p>
-          {{ aboutSection.description }}
+          {{ about.description }}
         </p>
         }
 

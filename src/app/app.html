@@ -1,7 +1,22 @@
-<app-header/>
-<app-hero/>
-<app-about/>
-<app-menu/>
-<app-gallery/>
-<app-contact/>
-<app-footer/>
+<div class="app-content">
+    <app-header />
+    <app-hero />
+    <app-about />
+    <app-menu />
+    <app-gallery />
+    <app-contact />
+    <app-footer />
+</div>
+
+@if(loadingService.isLoading()) {
+    <div class="splash-overlay">
+        <div class="mola-loader">
+            <div class="loader-ring ring-one"></div>
+            <div class="loader-ring ring-two"></div>
+
+            <div class="loader-logo">
+                <img src="/assets/images/logo_mola.png" alt="Mola">
+            </div>
+        </div>
+    </div>
+}

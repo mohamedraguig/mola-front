@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CarrouselService } from '../../services/carrousel-service';
 import { CarrouselItem } from '../../models/carrousel.model';
 import { StrapiImage } from '../../models/strapi-response.model';
@@ -11,15 +11,15 @@ import { StrapiImage } from '../../models/strapi-response.model';
 })
 export class Hero implements OnInit {
 
-  carrouselItems: CarrouselItem[] = [];
+  carrouselItems = signal<CarrouselItem[]>([]);
 
   constructor(private readonly carrouselService: CarrouselService) {}
 
   ngOnInit(): void {
     this.carrouselService.loadCarrouselItems().subscribe({
       next: response => {
-        this.carrouselItems = response.data.filter(
-          item => item.active
+        this.carrouselItems.set(
+          response.data.filter(item => item.active)
         );
       },
       error: error => {

@@ -13,7 +13,7 @@
           </p>
 
           <div class="menu-categories">
-            @for (category of categories; track category.documentId) {
+            @for (category of categories(); track category.documentId) {
             <button type="button" class="category-btn"
               [class.active]="selectedCategory?.documentId === category.documentId" (click)="selectCategory(category)">
               {{ category.name }}

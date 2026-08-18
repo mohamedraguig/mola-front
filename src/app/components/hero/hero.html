@@ -2,7 +2,7 @@
   <div id="homeCarousel" class="carousel slide hero-section carousel-fade" data-bs-ride="carousel">
 
     <div class="carousel-indicators">
-      @for (item of carrouselItems; track item.id; let first = $first; let index = $index) {
+      @for (item of carrouselItems(); track item.id; let first = $first; let index = $index) {
         <button
           type="button"
           data-bs-target="#homeCarousel"
@@ -16,7 +16,7 @@
 
     <div class="carousel-inner">
 
-      @for (item of carrouselItems; track item.id; let first = $first) {
+      @for (item of carrouselItems(); track item.id; let first = $first) {
       <div class="carousel-item" [class.active]="first"
         [style.background-image]="'url(' + getImageUrl(item.image) + ')'">
 

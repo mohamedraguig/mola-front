@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { AboutService } from '../../services/about-service';
 import { AboutSection } from '../../models/about.model';
 import { StrapiImage } from '../../models/strapi-response.model';
@@ -11,7 +11,7 @@ import { StrapiImage } from '../../models/strapi-response.model';
 })
 export class About implements OnInit {
 
-  aboutSection: AboutSection | null = null;
+  aboutSection = signal<AboutSection | null>(null);
   displayedImages: StrapiImage[] = [];
 
   constructor(private readonly aboutService: AboutService) {}
@@ -19,7 +19,7 @@ export class About implements OnInit {
   ngOnInit(): void {
     this.aboutService.loadAboutSection().subscribe({
       next: response => {
-          this.aboutSection = response.data;
+          this.aboutSection.set(response.data);
           this.displayedImages = this.getRandomImages(response.data.images);
       },
       error: error => {

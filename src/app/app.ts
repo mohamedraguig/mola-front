@@ -6,6 +6,7 @@ import { Menu } from './components/menu/menu';
 import { Gallery } from "./components/gallery/gallery";
 import { Contact } from "./components/contact/contact";
 import { Footer } from "./components/footer/footer";
+import { LoadingService } from './services/loading-service';
 
 @Component({
   selector: 'app-root',
@@ -15,4 +16,6 @@ import { Footer } from "./components/footer/footer";
 })
 export class App {
   protected readonly title = signal('mola-front');
+
+  constructor(public readonly loadingService: LoadingService) {}
 }

@@ -5,9 +5,9 @@
 
       <div class="col-md-4 mb-4">
 
-        @if (restaurantInfo) {
+        @if (restaurantInfo(); as info) {
         <h5 class="footer-title">
-          {{ restaurantInfo.name }}
+          {{ info.name }}
         </h5>
 
         <div class="footer-info">
@@ -15,7 +15,7 @@
           <div class="footer-info-item">
             <i class="bi bi-geo-alt"></i>
 
-            <a [href]="restaurantInfo.googleMapsUrl" target="_blank" rel="noopener noreferrer" class="footer-link">
+            <a [href]="info.googleMapsUrl" target="_blank" rel="noopener noreferrer" class="footer-link">
               @for (line of getAddressLines(); track $index) {
               {{ line }}
               @if (!$last) {
@@ -29,7 +29,7 @@
             <i class="bi bi-telephone"></i>
 
             <a [href]="getPhoneLink()" class="footer-link">
-              {{ restaurantInfo.phone }}
+              {{ info.phone }}
             </a>
           </div>
 

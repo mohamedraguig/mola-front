@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { InfoService } from '../../services/info-service';
 import { RestaurantInfo } from '../../models/restaurant-info.model';
 
@@ -10,14 +10,14 @@ import { RestaurantInfo } from '../../models/restaurant-info.model';
 })
 export class Contact implements OnInit {
 
-  restaurantInfo: RestaurantInfo | null = null;
+  restaurantInfo = signal<RestaurantInfo | null>(null);
 
   constructor(private readonly infoService: InfoService) { }
 
   ngOnInit(): void {
     this.infoService.loadRestaurantInfo().subscribe({
       next: response => {
-        this.restaurantInfo = response.data;
+        this.restaurantInfo.set(response.data);
       },
       error: error => {
         console.error('Erreur lors du chargement des infos restaurant', error);
@@ -26,11 +26,12 @@ export class Contact implements OnInit {
   }
 
   getPhoneLink(): string {
-    if (!this.restaurantInfo) {
+    const info = this.restaurantInfo();
+    if (!info) {
       return '';
     }
 
-    return 'tel:' + this.restaurantInfo.phone.replace(/\s/g, '');
+    return 'tel:' + info.phone.replace(/\s/g, '');
   }
 
 }

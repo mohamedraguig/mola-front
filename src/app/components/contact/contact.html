@@ -11,22 +11,22 @@
       </div>
 
       <!-- INFOS + HORAIRES -->
-      @if (restaurantInfo) {
+      @if (restaurantInfo(); as info) {
 
       <div class="col-lg-7">
 
         <h4 class="mb-4">
-          {{ restaurantInfo.name }}
+          {{ info.name }}
         </h4>
 
         <p>
           <i class="bi bi-geo-alt me-2"></i>
-          {{ restaurantInfo.address }}
+          {{ info.address }}
         </p>
 
         <p>
           <i class="bi bi-telephone me-2"></i>
-          {{ restaurantInfo.phone }}
+          {{ info.phone }}
         </p>
 
         <div class="mt-4 mb-5">
@@ -36,7 +36,7 @@
             Appeler
           </a>
 
-          <a [href]="restaurantInfo.googleMapsUrl" target="_blank" rel="noopener noreferrer"
+          <a [href]="info.googleMapsUrl" target="_blank" rel="noopener noreferrer"
             class="btn btn-outline-primary">
             <i class="bi bi-geo-alt me-2"></i>
             Itinéraire
@@ -51,7 +51,7 @@
         <ul class="timing-list">
 
           @for (
-          day of restaurantInfo.openingDays;
+          day of info.openingDays;
           track day.id
           ) {
 

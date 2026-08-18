@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Category, MenuItem } from '../../models/menu-item.model';
 import { MenuService } from '../../services/menu';
-import { error } from 'console';
 
 
 @Component({
@@ -12,8 +11,8 @@ import { error } from 'console';
 })
 export class Menu implements OnInit {
 
-  categories: Category[] = [];
-  menuItems: MenuItem[] = [];
+  categories = signal<Category[]>([]);
+  menuItems = signal<MenuItem[]>([]);
 
   selectedCategory: Category | null = null;
 
@@ -27,8 +26,8 @@ export class Menu implements OnInit {
   private loadMenuItems(): void {
     this.menuService.getMenuItems().subscribe({
       next: response => {
-        this.menuItems = response.data.filter(
-          item => item.available
+        this.menuItems.set(
+          response.data.filter(item => item.available)
         );
       },
       error: error => {
@@ -43,10 +42,10 @@ export class Menu implements OnInit {
   private loadCategories(): void {
     this.menuService.getCategories().subscribe({
       next: response => {
-        this.categories = response.data;
+        this.categories.set(response.data);
 
-        if (this.categories.length > 0) {
-          this.selectedCategory = this.categories[0];
+        if (this.categories().length > 0) {
+          this.selectedCategory = this.categories()[0];
         }
       },
       error: error => {
@@ -64,7 +63,7 @@ export class Menu implements OnInit {
       return [];
     }
 
-    return this.menuItems.filter(
+    return this.menuItems().filter(
       items => items.category?.documentId === this.selectedCategory?.documentId
     );
   }
